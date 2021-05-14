@@ -1,0 +1,116 @@
+.crumb-w {
+    background-color: #F2F2F2!important;
+}
+.w {
+    width: 1210px;
+    height: 38px;
+    margin: 0 auto;
+}
+.active {
+    width: 120px;
+    height: 18px;
+    line-height: 24px;
+    overflow : hidden ;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+
+}
+.breadcrumb {
+    width: 400px;
+    background-color:#F2F2F2;
+    color: #666;
+    /*line-height: 38px;*/
+}
+.breadcrumb li a:hover {
+    color: #e20;
+    text-decoration: none;
+}
+.breadcrumb li a {
+    color: #666666;
+}
+.breadcrumb>li+li:before {
+    color: #666;
+    content: '>';
+}
+.contact {
+    height: 38px;
+    /*width: 354px;*/
+    display: flex;
+}
+.contact li {
+    font-size: 12px;
+    height: 38px;
+    line-height: 38px;
+    float: left;
+    margin: 0 7px;
+}
+.contact li span {
+    font-size: 16px;
+}
+.product-intro {
+    height: 643px;
+    margin-top: 10px;
+}
+.product-intro .product-w {
+    height: 643px;
+    width: 1210px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.preview {
+    float: left;
+    width: 352px;
+    height: 464px;
+}
+.preview-img {
+    width: 352px;
+    height: 352px;
+    margin-bottom: 20px;
+}
+.spec-list {
+    width: 352px;
+    height: 54px;
+    margin-bottom: 18px;
+}
+.spec-list ul {
+    display: flex;
+}
+.preview-info {
+    height: 20px;
+}
+.preview-info ul {
+    display: flex;
+    height: 20px;
+}
+.itemInfo-wrap {
+    width: 590px;
+    float: left;
+    min-height: 464px;
+    margin-left: 30px;
+    position: relative;
+}
+.sku-name {
+    height: 66px;
+    padding-top: 10px;
+    margin-bottom: 5px;
+    font: 700 16px Arial, '微软雅黑';
+    background-color: #fff;
+    line-height: 28px;
+}
+.preview-img img  {
+    width: 100%;
+}
+.product-list {
+    width: 1210px;
+    margin: 0 auto;
+}
+.choose-btns img {
+    width: 100%;
+}
+.summary-price-wrap {
+    color: #F2F2F2;
+}
+.mecartshop {
+    cursor:pointer;
+}

@@ -1,0 +1,100 @@
+{
+  "id": "2535636",
+  "name": "JD",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "18643908",
+      "name": "叉",
+      "font_class": "cha",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "20797374",
+      "name": "右三角",
+      "font_class": "yousanjiao",
+      "unicode": "e6c8",
+      "unicode_decimal": 59080
+    },
+    {
+      "icon_id": "20797376",
+      "name": "左三角",
+      "font_class": "zuosanjiao",
+      "unicode": "e6c9",
+      "unicode_decimal": 59081
+    },
+    {
+      "icon_id": "597364",
+      "name": "反馈",
+      "font_class": "fankui",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "630128",
+      "name": "照相机",
+      "font_class": "zhaoxiangji",
+      "unicode": "e663",
+      "unicode_decimal": 58979
+    },
+    {
+      "icon_id": "677569",
+      "name": "放大镜",
+      "font_class": "fangdajing",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "1013041",
+      "name": "叶子标签",
+      "font_class": "yezibiaoqian",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "1089767",
+      "name": "三角",
+      "font_class": "sanjiao",
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    },
+    {
+      "icon_id": "1191493",
+      "name": "原浮层_前往购买",
+      "font_class": "yuanfucengqianwanggoumai",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "3872044",
+      "name": "定位",
+      "font_class": "dingwei",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "7511486",
+      "name": "购物车",
+      "font_class": "gouwuche",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "11124963",
+      "name": "客服",
+      "font_class": "10",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "13744098",
+      "name": "消息",
+      "font_class": "xiaoxi",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    }
+  ]
+}

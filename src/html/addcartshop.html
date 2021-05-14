@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东商城-购物车</title>
+    <script src="../js/axios.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../common/bootstrap.min.css">
+    <link rel="stylesheet" href="../icon/iconfont.css">
+    <link rel="stylesheet" href="../common/reset.css">
+    <link rel="stylesheet" href="../css/addcartshop.css">
+</head>
+<body>
+<div class="mecartshop"></div>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th style="width: 133px;"><input type="checkbox" name="" id="" class="allcheck">全选</th>
+        <th>商品</th>
+        <th>&nbsp;</th>
+        <th style="padding-right: 50px;text-align: right">单价</th>
+        <th>数量</th>
+        <th style="text-align: right;padding-right: 40px">小计</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<script>
+
+
+
+    // addcartshop我的购物车-京东商城
+    let token = localStorage.getItem('token');
+
+    async function addshop() {
+        let headers = {
+            token
+        }
+        const addcart = await axios.get('http://localhost:1337/api/v1/shop_carts',{headers})
+        console.log(addcart)
+        let AddArr = addcart.data.data
+        console.log(AddArr)
+        let str = AddArr.map(v => `<tr>
+                            <td style="width: 133px"><input type="checkbox" name="" class="check"></td>
+                            <td style="width: 300px;">
+                                <a href="productlist.html?id=${v.id}" target="_blank"><img src="${v.product.coverImage}" alt=""></a>
+                            </td>
+                            <td style="width: 150px;padding: 15px 0 0 20px">${v.product.name}</td>
+                            <td style="width: 190px;padding-right: 40px;text-align: right">${(v.price).toFixed(2)}</td>
+                            <td style="width: 84px;">${v.amount}</td>
+                            <td style="width: 140px;padding-right: 40px;text-align: right">${(v.price*v.amount).toFixed(2)}</td>
+                            <td style="width: 75px;padding: 15px 0 10px;"><span class="del" onclick="handlerDelBtn()">删除</span><p class="move">移入关注</p></td>
+                        </tr>`)
+        document.querySelector('.table tbody').innerHTML = str.join('')
+
+        // 复选和单选
+        let allcheck = document.querySelector('.allcheck')
+        let singcheck = document.querySelectorAll('.check')
+        allcheck.onclick = () => {
+            checkBox(allcheck, singcheck, 0)
+            console.log(singcheck)
+            singcheck.forEach((v,i) => {
+                console.log(v)
+            })
+        }
+        singcheck.forEach((v) => {
+
+            v.onclick = () => {
+                checkBox(allcheck, singcheck, 1)
+            }
+        })
+        console.log(singcheck)
+        console.log(allcheck)
+
+        return AddArr
+
+    }
+    addshop()
+    function handlerDelBtn() {
+        console.log('123')
+        axios.delete(`http://localhost:1337/api/v1/shop_carts/$`)
+    }
+
+
+    function checkBox(allCheck, check, flag) {
+        //复选框方法  全选按钮 单选按钮
+
+        let isAll = allCheck.checked;
+        if (flag == 0) {
+            check.forEach((item) => {
+                item.checked = isAll;
+            });
+        }
+        if (flag == 1) {
+            console.log("点击单选框");
+            let ischeck = Array.from(check).every((value) => value.checked == true);
+
+            if (ischeck) {
+                //全部选中
+                allCheck.checked = true;
+            } else {
+                allCheck.checked = false;
+            }
+        }
+    }
+    let mecartshop = document.querySelector('.mecartshop')
+    console.log(mecartshop)
+    mecartshop.innerHTML = `<p>此模块正在开发中敬请期待~</p><input style="height: 40px;position: absolute;bottom: 0;" type="button" value="确认" placeholder="确认">`
+</script>
+<style>
+
+    .mecartshop {
+        width: 400px;
+        height: 260px;
+        background-color: #ccc;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        line-height: 260px;
+        text-align: center;
+        font-size: 20px;
+        transform: translate(-50%,-50%);
+        display: none;
+    }
+    .table {
+        width: 990px;
+        margin: 0 auto;
+    }
+    .table thead tr th {
+        border: 0;
+    }
+    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+        padding: 8px;
+        vertical-align: top;
+        border-top: 1px solid #ddd;
+    }
+    .table>tbody>tr>td:nth-child(2) img {
+        width: 25%;
+    }
+    .del:hover {
+        color: #f00;
+    }
+    .move:hover {
+        color: #f00;
+    }
+    .table>tbody>tr>td:last-child {
+        cursor:pointer;
+    }
+    .table>tbody>tr>td:nth-child(3):hover {
+        color: #f00;
+        cursor:pointer;
+    }
+</style>
+</body>
+</html>

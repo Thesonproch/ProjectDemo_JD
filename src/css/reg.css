@@ -1,0 +1,73 @@
+.header-x {
+    height: 110px;
+    border-bottom: 4px solid #F2F2F2;
+}
+.header {
+    width: 1210px;
+    height: 110px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-bottom: 4px solid #F2F2F2;
+}
+.header .header-left {
+    width: 256px;
+    height: 76px;
+    float: left;
+}
+.header .header-right {
+    width: 145px;
+    height: 76px;
+    float: right;
+
+}
+.logo-title {
+    font-size: 24px;
+}
+.header .header-left .logo {
+    background: url('../assets/icon.png') no-repeat;
+}
+.header .header-left a {
+    display: inline-block;
+    width: 160px;
+    height: 50px;
+}
+.header .header-left .logo {
+    width: 160px;
+    height: 50px;
+    margin-top: 20px;
+}
+.header .header-left .logo-title {
+    float: right;
+    margin-top: 30px;
+}
+.header .header-right span {
+    display: inline-block;
+    margin-top: 55px;
+    font-size: 16px;
+    color: #999;
+}
+.header .header-right a {
+    display: inline-block;
+    color: #e22;
+}
+.header .header-right a:hover {
+    text-decoration: #C81522 underline;
+    color: #C81522;
+}
+form {
+    width: 445px;
+    height: 252px;
+    margin: 98px auto;
+    position: relative;
+}
+.form-control {
+    height: 52px;
+}
+form .btn-primary {
+    width: 300px;
+    height: 52px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+}

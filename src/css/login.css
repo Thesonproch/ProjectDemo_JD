@@ -1,0 +1,231 @@
+.header-x {
+    height: 76px;
+}
+.header {
+    width: 1210px;
+    height: 76px;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.header .header-left {
+    width: 256px;
+    height: 76px;
+    float: left;
+    margin-left: 122px;
+}
+.header .header-right {
+    width: 145px;
+    height: 76px;
+    float: right;
+    margin-right: 110px;
+}
+.logo-title {
+    font-size: 24px;
+}
+.header .header-left .logo {
+    background: url('../assets/icon.png') no-repeat;
+}
+.header .header-left a {
+    display: inline-block;
+    width: 160px;
+    height: 50px;
+}
+.header .header-left .logo {
+    width: 160px;
+    height: 50px;
+    margin-top: 20px;
+}
+.header .header-left .logo-title {
+    float: right;
+    margin-top: 30px;
+}
+.header .header-right span {
+    display: inline-block;
+    margin-top: 55px;
+    font-size: 16px;
+    color: #999;
+}
+.header .header-right a {
+    display: inline-block;
+    color: #999999;
+    width: 115px;
+    font-size: 12px;
+    float: right;
+    margin-top: 55px;
+}
+.header .header-right span {
+    width: 30px;
+    height: 20px;
+    float: left;
+    background: url('../assets/q-icon.png') no-repeat center;
+}
+.header .header-right a:hover {
+    text-decoration: #C81522 underline;
+    color: #C81522;
+}
+.tips-inner {
+    height: 40px;
+    background-color: #FFF8F0;
+}
+.con-wrapper {
+    font-size: 12px;
+    width: 1210px;
+    height: 40px;
+    line-height: 40px;
+    color: #999;
+    margin: 10px auto;
+    /*box-sizing: border-box;*/
+    text-align: center;
+    background-color: #FFF8F0;
+}
+.con-wrapper p {
+    float: right;
+    margin-right: 204px;
+    display: inline-block;
+}
+.con-wrapper i {
+    display: inline-block;
+    width: 16px;
+    height: 40px;
+    margin-left: 189px;
+    background: url('../assets/icon-tips.png') no-repeat center;
+}
+.con-wrapper a {
+    color: #333;
+}
+
+
+.login-banner {
+    height: 475px;
+    background-color: #F7A55A;
+}
+.login-bg {
+    width: 990px;
+    height: 475px;
+    margin: 0 auto;
+    background: url('../assets/login-banner.jpg') no-repeat;
+    position: relative;
+}
+.login-bg .login-box {
+    width: 346px;
+    height: 438px;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    background-color: #fff;
+}
+.login-top {
+    height: 38px;
+    line-height: 38px;
+    font-size: 12px;
+    width: 311px;
+    margin: 0 auto;
+    color: #999;
+    padding-top: 10px;
+    /*margin: 10px;*/
+}
+.login-top i {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-left: 13px;
+    background: url('../assets/icon-tips.png') no-repeat center;
+}
+.login-top p {
+    height: 19px;
+    line-height: 19px;
+    float: right;
+    margin-right: 13px;
+    display: inline-block;
+}
+.login-con {
+    width: 100%;
+    height: 300px;
+    margin: 0 auto;
+}
+.login-con ul {
+    height: 300px;
+}
+.saoma {
+    width: 100%;
+    display: inline-block;
+    margin-top: 30px;
+
+}
+.saoma img {
+    margin: 0 auto;
+}
+.zhanghu {
+    width: 304px;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.zhanghu input {
+    width: 304px;
+    height: 38px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+.zhanghu form span {
+    height: 30px;
+    position: absolute;
+    right: 0;
+    margin: 10px 0;
+    font-size: 12px;
+}
+.zhanghu .login-babel input, .zhanghu .login-item input {
+    height: 38px;
+    padding: 10px 0 10px 50px;
+    box-sizing: border-box;
+    border: 1px solid #767676;
+    outline: none;
+}
+.login-babel label {
+    position: absolute;
+    top: 11px;
+    left: 1px;
+    width: 39px;
+    height: 36px;
+    border-right: 1px solid #767676;
+    background: url('../assets/pwd-icons-new.png') no-repeat 0 0;
+}
+.login-item label {
+    position: absolute;
+    top: 69px;
+    left: 1px;
+    width: 39px;
+    height: 36px;
+    border-right: 1px solid #767676;
+    background: url('../assets/pwd-icons-new.png') no-repeat -48px 0;
+}
+.zhanghu form span a {
+    color: #666666;
+}
+.zhanghu form span a:hover {
+    color: #e20;
+    text-decoration: #C81522 underline;
+}
+.list {
+    display: flex;
+    width: 100%;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+
+    font-size: 18px;
+    cursor: pointer;
+}
+.list li {
+    flex: 1;
+    font-weight: 700;
+}
+.list li:nth-child(2) {
+    font-weight: 400;
+}
+.list li:nth-child(2):hover {
+    color: #f00;
+    font-weight: 700;
+}

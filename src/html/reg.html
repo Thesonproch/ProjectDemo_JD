@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人注册</title>
+    <script src="../js/axios.min.js"></script>
+<!--    <script src="../js/jquery.min.js"></script>-->
+<!--    <script src="../js/api.js"></script>-->
+<!--    <script src="../js/reg.js" type="module"></script>-->
+    <link rel="stylesheet" href="../common/bootstrap.min.css">
+    <link rel="stylesheet" href="../common/reset.css">
+    <link rel="stylesheet" href="../css/reg.css">
+
+</head>
+<body>
+<div class="header-x">
+    <div class="header">
+        <div class="header-left">
+            <a href="https://jd.com" alt="" class="logo"></a>
+            <div class="logo-title">欢迎注册</div>
+        </div>
+        <div class="header-right">
+            <span>已有账号 ?  <a href="login.html">请登录&gt;</a></span>
+        </div>
+    </div>
+</div>
+<form action="" method="post" role="form">
+    <div class="form-group">
+        <label for="">用户名</label>
+        <input type="text" class="form-control" name="" placeholder="请您输入用户名">
+    </div>
+    <div class="form-group">
+        <label for="">密码</label>
+        <input type="text" class="form-control" name="" placeholder="请您输入密码">
+    </div>
+    <input type="button" class="btn btn-primary" value="注册">
+</form>
+<script type="module">
+
+    // 注册页面reg
+    let ipt = document.querySelectorAll('input')
+    console.log(ipt)
+    let btn = ipt[2]
+    // let url = handlerReg
+    let userName;
+    let password;
+    // console.log(url)
+    btn.onclick = () => {
+        userName = ipt[0].value;
+        password = ipt[1].value;
+        console.log(userName)
+        console.log(password)
+        let params = {
+            userName,
+            password
+        }
+        console.log('ok')
+        console.log(params)
+        axios.post('http://localhost:1337/api/v1/auth/reg',params).then((resolve) => {
+            console.log(resolve)
+            console.log(resolve.data.code)
+            let code = resolve.data.code;
+            let data = resolve.data.data;
+            // localStorage.setItem('userName', userName)
+            // localStorage.setItem('data', data)
+            code == 1?alert('恭喜您注册账户成功'):alert('用户名重复注册失败请重新注册')
+            if (resolve.status == 200) {
+                location.href = 'login.html'
+            }
+        }).catch((reject) => {
+            console.log(reject)
+            alert('用户名重复注册失败请重新注册')
+        })
+        ipt[0].value = '';
+        ipt[1].value = '';
+    }
+
+</script>
+</body>
+</html>

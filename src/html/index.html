@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>京东(JD.COM)-正品低价、品质保障、配送及时、轻松购物！</title>
+    <script src="../js/axios.min.js"></script>
+    <link rel="stylesheet" href="../css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../icon/iconfont.css">
+    <link rel="stylesheet" href="../common/reset.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+        
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        
+        .swiper-button-prev:after,
+        .swiper-container-rtl .swiper-button-next:after {
+            font-size: 20px;
+        }
+        
+        .swiper-button-prev,
+        .swiper-container-rtl .swiper-button-next {
+            left: -8px;
+        }
+        
+        .swiper-button-next,
+        .swiper-container-rtl .swiper-button-prev {
+            right: -8px;
+        }
+        
+        .swiper-button-prev {
+            border: 1px solid #ccc;
+            height: 35px;
+            color: rgba(255, 255, 255, .8);
+            background-color: rgba(255, 255, 255, .3);
+            border-radius: 0 50% 50% 0;
+        }
+        
+        .swiper-button-next {
+            border: 1px solid #ccc;
+            height: 35px;
+            color: rgba(255, 255, 255, .8);
+            background-color: rgba(255, 255, 255, .3);
+            border-radius: 50% 0 0 50%;
+        }
+        
+        .swiper-button-next:after,
+        .swiper-container-rtl .swiper-button-prev:after {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-w">
+        <div class="header">
+            <ul class="header-map fl">
+                <li class="iconfont icon-dingwei"></li>
+                <li style="color: #999">地区</li>
+            </ul>
+            <div class="header-shortcut fr">
+                <ul class="right clearfix fl">
+                    <li class="menu welcome">
+                        <a href="login.html" class="link_login">你好，请登录</a>
+                        &nbsp;&nbsp;
+                        <a href="reg.html" class="link_register" style="color: #F10215">免费注册</a>
+                    </li>
+                    <li class="spacer" style="margin-left: 8px">|</li>
+                    <li class="menu red"><a href="myorder.html" style="color:#999">我的订单</a></li>
+                    <li class="spacer">|</li>
+                    <li class="menu red">我的京东&nbsp;∨</li>
+                    <li class="spacer">|</li>
+                    <li class="menu red">京东会员</li>
+                    <li class="spacer">|</li>
+                    <li class="menu qiye"><span style="color: #f10215">企业采购</span>&nbsp;∨</li>
+                    <li class="spacer">|</li>
+                    <li class="menu">客户服务&nbsp;∨</li>
+                    <li class="spacer">|</li>
+                    <li class="menu">网站导航&nbsp;∨</li>
+                    <li class="spacer">|</li>
+                    <li class="menu">手机京东</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="header-W">
+        <div class="header-Warp">
+            <div class="logo">
+                <h1 class="logo_tit">
+                    <img src="../assets/logo.png" alt="">
+                </h1>
+            </div>
+            <div id="search">
+                <input type="text" class="text" placeholder="电脑主机台式">
+                <span></span>
+                <button class="button"><i>搜索</i></button>
+            </div>
+            <div id="hotwords"></div>
+            <div id="navitems"></div>
+            <div id="treasure"></div>
+        </div>
+    </div>
+    <div class="header-login">
+        <div class="logo-w">
+            <div class="logo">
+                <ul class="goods-classify">
+                    <li><a href="">家用电器</a></li>
+                    <li>
+                        <a href="">手机</a><span>/</span><a href="">运营商</a><span>/</span><a href="">数码</a>
+                    </li>
+                    <li><a href="">电脑</a><span>/</span><a href="">办公</a></li>
+                    <li>
+                        <a href="">家居</a><span>/</span><a href="">家具</a><span>/</span><a href="">家装</a><span>/</span><a href="">厨具</a>
+                    </li>
+                    <li>
+                        <a href="">男装</a><span>/</span><a href="">女装</a><span>/</span><a href="">童装</a><span>/</span><a href="">内衣</a>
+                    </li>
+                    <li>
+                        <a href="">美妆</a><span>/</span><a href="">个护</a><span>/</span><a href="">宠物</a>
+                    </li>
+                    <li>
+                        <a href="">女鞋</a><span>/</span><a href="">箱包</a><span>/</span><a href="">珠宝</a><span>/</span><a href="">手表</a>
+                    </li>
+                    <li>
+                        <a href="">男鞋</a><span>/</span><a href="">运动</a><span>/</span><a href="">户外</a>
+                    </li>
+                    <li>
+                        <a href="">房产</a><span>/</span><a href="">汽车</a><span>/</span><a href="">汽车用品</a>
+                    </li>
+                    <li><a href="">母婴</a><span>/</span><a href="">玩具乐器</a></li>
+                    <li>
+                        <a href="">食品</a><span>/</span><a href="">酒类</a><span>/</span><a href="">生鲜</a><span>/</span><a href="">特产</a>
+                    </li>
+                    <li> <a href="">艺术</a><span>/</span><a href="">礼品鲜花</a><span>/</span><a href="">绿植</a></li>
+                    <li> <a href="">医疗保健</a><span>/</span><a href="">计生情趣</a></li>
+                    <li> <a href="">图书</a><span>/</span><a href="">文娱</a><span>/</span><a href="">教育</a><span>/</span><a href="">电子书</a></li>
+                    <li> <a href="">机票</a><span>/</span><a href="">酒店</a><span>/</span><a href="">旅游</a><span>/</span><a href="">生活</a></li>
+                    <li> <a href="">理财</a><span>/</span><a href="">众筹</a><span>/</span><a href="">白条</a><span>/</span><a href="">保险</a></li>
+                    <li> <a href="">安装</a><span>/</span><a href="">维修</a><span>/</span><a href="">清洗</a><span>/</span><a href="">二手</a></li>
+                    <li><a href="">工业品</a></li>
+                </ul>
+            </div>
+            <div class="logo-cen">
+                <!--轮播图区域-->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="../assets/01.jpg.webp" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../assets/02.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../assets/03.jpg.webp" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../assets/04.jpg.webp" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../assets/05.jpg.webp" alt="">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../assets/06.jpg" alt="">
+                        </div>
+                    </div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            <div class="logo-r">
+                <ul>
+                    <li>
+                        <div class="swiper-container lunbotu">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="../assets/01.jpg.webp" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="../assets/02.jpg" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="../assets/03.jpg.webp" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="swiper-container lunbotu">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="../assets/01.jpg.webp" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="../assets/02.jpg" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="../assets/03.jpg.webp" alt="">
+                                </div>
+                            </div>
+                            <!-- Add Arrows -->
+                            <div class="swiper-button-next" style="display:none"></div>
+                            <div class="swiper-button-prev" style="display: none"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="swiper-container lunbotu">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="../assets/01.jpg.webp" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="../assets/02.jpg" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="../assets/03.jpg.webp" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="logo-p">
+                <div class="user_plus0">
+                    <div class="user_plus0_box">
+                        <div class="user_plus0_lf fl">
+                            <img src="../assets/logo.gif" alt="">
+                        </div>
+                        <div class="user_plus0_lr fl">
+                            <p class="wecome">Hi~欢迎逛京东！</p>
+                            <p class="login_id"><a href="login.html">登录</a><span>|</span><a href="reg.html">注册</a></p>
+                            <p class="login_username" onclick="handlerun()"></p>
+                        </div>
+                    </div>
+                    <div class="user_plus0_new">
+                        <ul>
+                            <li style="background-color:#f00; color: #fff">新人福利</li>
+                            <li class="PLUS" onclick="handlerPlus()" style="cursor:pointer; color: #E5D790; background-color:#363634;">PLUS会员</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="news2">
+                    <div class="new2-top">
+                        <h3>京东快报</h3>
+                        <a href="javascript:;">更多 &gt;</a>
+                    </div>
+                    <div class="news2-list">
+                        <ul>
+                            <li>
+                                <span>热评</span>
+                                <p><a href="javascript:;">无惧水滴意外泼溅，森海塞尔让高保真音乐始终与你相伴</a></p>
+                            </li>
+                            <li>
+                                <span>推荐</span>
+                                <p><a href="javascript:;">担心内存不够？不妨get一台微软商用版笔记本</a></p>
+                            </li>
+                            <li>
+                                <span>热评</span>
+                                <p><a href="javascript:;">游戏本才是学生搭档，开学换机就选拯救者Y7000P</a></p>
+                            </li>
+                            <li>
+                                <span>最新</span>
+                                <p><a href="javascript:;">清明踏青随时修图，雷蛇灵刃13潜行版游刃有余</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="J_tab_head">
+                    <ul>
+                        <li>
+                            <p>
+                                <img src="../assets/youka.png" alt="">
+                            </p>
+                            <span>手机</span>
+                        </li>
+                        <li>
+                            <p>
+                                <img src="../assets/youka.png" alt="">
+                            </p>
+                            <span>手机</span>
+                        </li>
+                        <li>
+                            <p>
+                                <img src="../assets/youka.png" alt="">
+                            </p>
+                            <span>手机</span>
+                        </li>
+                        <li>
+                            <p>
+                                <img src="../assets/youka.png" alt="">
+                            </p>
+                            <span>手机</span>
+                        </li>
+                        <li>
+                            <p>
+                                <img src="../assets/youka.png" alt="">
+                            </p>
+                            <span>手机</span>
+                        </li>
+                        <li>
+                            <p>
+                                <img src="../assets/youka.png" alt="">
+                            </p>
+                            <span>手机</span>
+                        </li>
+                        <li>
+                            <p>
+                                <img src="../assets/youka.png" alt="">
+                            </p>
+                            <span>手机</span>
+                        </li>
+                        <li>
+                            <p>
+                                <img src="../assets/youka.png" alt="">
+                            </p>
+                            <span>手机</span>
+                        </li>
+                        <li>
+                            <p>
+                                <img src="../assets/youka.png" alt="">
+                            </p>
+                            <span>手机</span>
+                        </li>
+                        <li>
+                            <p>
+                                <img src="../assets/youka.png" alt="">
+                            </p>
+                            <span>手机</span>
+                        </li>
+                        <li>
+                            <p>
+                                <img src="../assets/youka.png" alt="">
+                            </p>
+                            <span>手机</span>
+                        </li>
+                        <li>
+                            <p>
+                                <img src="../assets/youka.png" alt="">
+                            </p>
+                            <span>话费</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="JS_popCtn fr" style="display: none">
+                <div id="cate_item1">
+
+                    <ul>
+                        <li style="padding: 10px 0">
+                            <span>家电馆 &gt;</span><span>家电专卖店 &gt;</span><span>家电服务 &gt;</span><span>企业采购
+                                &gt;</span><span>商用家电 &gt;</span><span>高价回收 &gt;</span>
+                        </li>
+                        <li>
+                            <h3>电视 &gt;</h3>
+                            <div class="cate_box">
+                                <span>超薄电视</span><span>全面屏电视</span><span>智能电视</span><span>教育电视</span><span>OLED电视</span><span>智慧屏</span><span>4K超清电视</span><span>55英寸</span><span>65英寸</span><span>电视配件</span>
+                            </div>
+                        </li>
+                        <li>
+                            <h3>空调 &gt;</h3>
+                            <div class="cate_box">
+                                <span>教育电视</span><span>OLED电视</span><span>智慧屏</span><span>4K超清电视</span><span>55英寸</span><span>65英寸</span><span>电视配件</span>
+                            </div>
+                        </li>
+                        <li>
+                            <h3>空调 &gt;</h3>
+                            <div class="cate_box">
+                                <span>教育电视</span><span>OLED电视</span><span>智慧屏</span><span>4K超清电视</span><span>55英寸</span><span>65英寸</span><span>电视配件</span>
+                            </div>
+                        </li>
+                        <li>
+                            <h3>空调 &gt;</h3>
+                            <div class="cate_box">
+                                <span>教育电视</span><span>OLED电视</span><span>智慧屏</span><span>4K超清电视</span><span>55英寸</span><span>65英寸</span><span>电视配件</span>
+                            </div>
+                        </li>
+                        <li>
+                            <h3>空调 &gt;</h3>
+                            <div class="cate_box">
+                                <span>教育电视</span><span>OLED电视</span><span>智慧屏</span><span>4K超清电视</span><span>55英寸</span><span>65英寸</span><span>电视配件</span>
+                            </div>
+                        </li>
+                        <li>
+                            <h3>空调 &gt;</h3>
+                            <div class="cate_box">
+                                <span>超薄电视</span><span>全面屏电视</span><span>智能电视</span><span>教育电视</span><span>OLED电视</span><span>智慧屏</span><span>4K超清电视</span><span>55英寸</span><span>65英寸</span><span>电视配件</span>
+                            </div>
+                        </li>
+                        <li>
+                            <h3>空调 &gt;</h3>
+                            <div class="cate_box">
+                                <span>超薄电视</span><span>全面屏电视</span><span>智能电视</span><span>教育电视</span><span>OLED电视</span><span>智慧屏</span><span>4K超清电视</span><span>55英寸</span><span>65英寸</span><span>电视配件</span>
+                            </div>
+                        </li>
+                        <li>
+                            <h3>空调 &gt;</h3>
+                            <div class="cate_box">
+                                <span>超薄电视</span><span>全面屏电视</span><span>智能电视</span><span>教育电视</span><span>OLED电视</span><span>智慧屏</span><span>4K超清电视</span><span>55英寸</span><span>65英寸</span><span>电视配件</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="J_app">
+        <!--京东秒杀-->
+        <div class="J_seckill">
+            <div class="jd_container">
+                <a class="seckill-countdown" href="miaosha.js.com" target="_blank">
+                    <div class="countdown-title box">
+                        <h3>京东秒杀</h3>
+                        <p><strong style="font-size: 18px;">18:00</strong> 点场 距结束</p>
+                        <p id="showtime"></p>
+                    </div>
+                </a>
+                <div class="seckill-item">
+                    <ul>
+                        <li>
+                            <div class="swiper-container" style="width: 200px">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="../assets/01.jpg.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/02.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/03.jpg.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/04.jpg.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/05.jpg.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/06.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="swiper-container" style="width: 200px">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="../assets/01.jpg.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/02.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/03.jpg.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/04.jpg.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/05.jpg.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/06.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="swiper-container" style="width: 200px">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="../assets/01.jpg.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/02.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/03.jpg.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/04.jpg.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/05.jpg.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/06.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="swiper-container" style="width: 200px">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="../assets/01.jpg.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/02.jpg" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/03.jpg.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/04.jpg.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/05.jpg.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../assets/06.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="seckill-brand">
+                    <ul>
+                        <li>
+                            <img src="../assets/02.jpg" alt="">
+                        </li>
+                        <li>
+                            <p style="color: #666;height: 21px;">礼遇5周年 养生吾有道</p>
+                            <p style="color: #333;height: 21px;">好物低至9.9元</p>
+                            <p style="color: #E1251B">品类秒杀 &gt;</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--每日特价-->
+        <!--为你推荐-->
+        <div class="more2">
+            <div class="more2_h3">
+                <h3>为你推荐</h3>
+            </div>
+            <div class="feed-tab-wrapper">
+                <ul>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Swiper JS -->
+    <script src="../js/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        // 轮播区域
+        let swiper = new Swiper('.swiper-container', {
+            effect: 'fade',
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination'
+            },
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+                stopOnLastSlide: true
+            },
+            mousewheel: true,
+            keyboard: true,
+        });
+
+        function f() {
+            let swiper1 = new Swiper('.lunbotu', {
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+
+            });
+            let lr = document.querySelector('.logo-r')
+            let bn = document.querySelector('.logo-r .swiper-button-next')
+            let bp = document.querySelector('.logo-r .swiper-button-prev')
+            console.log(bn)
+            console.log(lr)
+            lr.onmousemove = () => {
+                console.log('123')
+                bn.style.display = 'block'
+                bp.style.display = 'block'
+
+            }
+            lr.onmouseout = () => {
+                console.log('离开')
+                bn.style.display = 'none'
+                bp.style.display = 'none'
+            }
+        }
+        f('.lunbotu', '.swiper-button-next', '.swiper-button-prev')
+            // 轮播图区域
+        function banner() {
+            let params = {
+
+            }
+            axios.get('http://localhost:1337/api/v1/banners', {
+                params
+            }).then((resolve) => {
+                console.log(resolve)
+                let dataArr = resolve.data.data;
+                console.log(dataArr)
+                let str = dataArr.map(v => `<div class="swiper-slide">
+                                <img src="${v.coverImage}" alt="">
+                            </div>`)
+                    // document.querySelector('.swiper-wrapper').innerHTML = str.join('')
+            }).catch((reject) => {
+                console.log(reject)
+            })
+        }
+        banner()
+            // 商品列表
+        function productList() {
+            let params = {
+
+            }
+            axios.get('http://localhost:1337/api/v1/product_categories', {
+                params
+            }).then((resolve) => {
+                console.log(resolve)
+            })
+        }
+        productList()
+            // 京东秒杀
+        function jdmiaosha() {
+            let content = document.querySelector('#showtime')
+            console.log(content);
+            let showtime = function() {
+                let nowtime = new Date(), //获取当前时间
+                    endtime = new Date("2022-05-21 24:00:00"); //定义结束时间
+                let lefttime = endtime.getTime() - nowtime.getTime(), //距离结束时间的毫秒数
+                    lefth = Math.floor((lefttime / (1000 * 60 * 60) % 24)), //计算小时数
+                    leftm = Math.floor((lefttime / (1000 * 60) % 60)), //计算分钟数
+                    lefts = Math.floor((lefttime / 1000 % 60)); //计算秒数
+                // console.log(lefttime);
+                lefth = formatdate(lefth)
+                leftm = formatdate(leftm)
+                lefts = formatdate(lefts)
+                if (lefth == '00' && leftm == '00' && lefts == '00' || lefttime < 0) {
+                    clearInterval(res)
+                    console.log('123触发了');
+                    lefth = '00';
+                    leftm = '00';
+                    lefts = '00';
+                }
+                let arr = [lefth, leftm, lefts]
+                // console.log(lefth)
+                content.innerHTML = `<h6></h6><strong>:</strong><h6></h6><strong>:</strong><h6></h6>`
+                let h6 = document.querySelectorAll('h6')
+                let strong = document.querySelectorAll('strong');
+                // console.log(strong);
+                strong.forEach((v, i) => {
+                    // console.log(v);
+                    // console.log(i);
+                    // v.style.fontWeight = '700'
+                    v.style.fontSize = '20px'
+                    v.style.color = '#fff'
+                })
+                // console.log(h6)
+                h6.forEach((item, index) => {
+                    // console.log(item)
+                    item.style.backgroundColor = '#2F3430'
+                    item.style.margin = '10px'
+                    item.style.display = 'inline-block'
+                    item.style.width = '30px'
+                    item.style.height = '30px'
+                    item.style.lineHeight = '30px'
+                    item.style.textAlign = 'center'
+                    item.style.fontSize = '20px'
+                    item.style.fontWeight = '700'
+                    item.style.color = '#fff'
+                    item.innerHTML = arr[index]
+                })
+            }
+            let res = setInterval(showtime, 1000); //反复执行函数本身
+
+            function formatdate(date) {
+                if (date < 10) {
+                    var datestr = String(date);
+                    datestr = "0" + datestr
+                } else {
+                    var datestr = String(date);
+                }
+                return datestr; //返回一个格式化后的值
+            }
+        }
+        jdmiaosha()
+        // 账户登录显示用户名
+        let userName = localStorage.getItem('userName')
+        console.log(userName)
+        let loginId = document.querySelector('.login_id')
+        let loginusername = document.querySelector('.login_username');
+        let wecome = document.querySelector('.wecome');
+        let linklogin = document.querySelector('.link_login');
+        let linkreg = document.querySelector('.link_register');
+        console.log(linkreg)
+        console.log(linklogin)
+        console.log(loginusername)
+        console.log(loginId)
+        if (userName) {
+            wecome.innerHTML = `Hi~${userName}`
+            linklogin.innerHTML = `${userName}`
+            linkreg.innerHTML = `PLUS会员`
+            linkreg.style.color = '#fff'
+            linkreg.style.backgroundColor = '#D1CDC3'
+            wecome.style.fontSize = '14px'
+
+            loginId.style.display = 'none'
+            loginusername.style.height = '25px'
+            loginusername.innerHTML = `退出登录`
+            loginusername.style.cursor = 'pointer'
+        }
+
+        // header部分登录模块显示id
+        function handlerun() {
+
+            let resclear = localStorage.removeItem('userName')
+            let token = localStorage.removeItem('token')
+            console.log(resclear)
+            if (!resclear&&!token) {
+                location.href = 'login.html'
+            }
+        }
+
+        // 商品展示列表
+        let list = document.querySelector('.feed-tab-wrapper ul')
+        console.log(list)
+        async function productList() {
+            let page = 1
+            let per = 64
+            let params = {
+                page,
+                per,
+                name
+            }
+            const products = await axios.get('http://localhost:1337/api/v1/products', {params})
+            console.log(products)
+            let listArr = products.data.data
+            console.log(listArr)
+            let str = listArr.map(v => `<li>
+                            <a href="productlist.html?id=${v.id}" target="_blank">
+                                <div class="pimg">
+                                    <img src="${v.coverImage}" alt="">
+                                </div>
+                                <h3 class="ptitle" >${v.name}${v.name}${v.name}${v.name}</h3>
+                                <p class="price"><span>￥</span>${v.price}</p>
+                            </a>
+                    </li>`)
+            list.innerHTML = str.join('')
+            let prices = document.querySelectorAll('.price')
+            console.log(prices)
+            prices.forEach((value) => {
+                value.style.color = '#f00'
+            })
+        }
+        productList()
+        function handlerPlus() {
+            console.log('ok')
+            alert('此模块正在开发中敬请期待')
+        }
+    </script>
+</body>
+
+</html>
